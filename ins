@@ -1,0 +1,22 @@
+setup git:
+manage jenkins-> tools-> git installations 
+name: Default
+path: git.exe
+uncheck install automatically 
+
+in freestyle job:
+add build step-> execute windows command : echo hello shalini
+source code management-> add git url, change master to main
+triggers-> poll scm: H/5 * * * *
+post build action-> add-> item name 
+BUILD
+
+in pipeline job:
+scm-> git, add url, master to main
+poll scm:  H/5 * * * *
+BUILD
+
+pipeline view:
++ icon ->give name ->build pipeline view
+choose initial job (you shld have given post build option in that project)
+row and col headers: all build variables and parameters
