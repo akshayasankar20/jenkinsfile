@@ -58,6 +58,20 @@ pipeline {
   }
  }
 }
+
+Dockerfile
+# Use Java 17 base image
+FROM openjdk:17
+
+# Set working directory
+WORKDIR /app
+
+# Copy jar file
+COPY target/q1.jar app.jar
+
+# Run application
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
 Question 2 - Sorting
 App.java
 import java.util.*;
@@ -117,6 +131,16 @@ pipeline {
   }
  }
 }
+
+Dockerfile
+FROM openjdk:17
+
+WORKDIR /app
+
+COPY target/q2.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
 Question 3 - Electricity Bill
 App.java
 public class App{
@@ -171,6 +195,15 @@ pipeline {
   }
  }
 }
+Dockerfile
+FROM openjdk:17
+
+WORKDIR /app
+
+COPY target/q3.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
 Question 4 - ATM
 App.java
 public class App{
@@ -225,6 +258,16 @@ pipeline {
   }
  }
 }
+
+Dockerfile
+FROM openjdk:17
+
+WORKDIR /app
+
+COPY target/q4.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
 Question 5 - Salary
 App.java
 public class App{
@@ -277,3 +320,27 @@ pipeline {
   }
  }
 }
+
+Dockerfile
+FROM openjdk:17
+
+WORKDIR /app
+
+COPY target/q5.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+Before running Docker
+
+Make sure:
+
+mvn clean package
+
+This creates:
+
+target/q1.jar
+target/q2.jar
+
+Run Commands
+docker build -t q1-app .
+docker run q1-app
